@@ -7,6 +7,8 @@ gem 'rails', '4.2.3'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use for twitter-bootstrap
+gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -28,7 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production do 
   gem 'pg'
-  gem 'rails12_factor'
+  gem 'rails_12factor'
 end
 
 # Use Unicorn as the app server
