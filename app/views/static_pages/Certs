@@ -1,0 +1,79 @@
+Certs
+A >=4
+B >=2
+C 1
+
+Bio
+A Full
+B 1/2
+F 0
+
+Results
+A 6
+B 4
+C >1
+
+Age Profile
+A 3 Days
+B 2 Days
+C
+
+A - 100
+B - 90
+C - 70
+D - 60
+F - 0
+
+User
+   3 pictures
+
+
+
+
+((rG * rW) + (cG * cW) + (bG * bW) + (aG * aW)) / (rW + cW + bW + aw)
+
+((70 * 4) + (CG * 2) + (bG * 5) + (aG * 3)) / (4 + 2 + 5 +3)
+
+rG -> Results or (amount of images the trainers places for before)
+
+   0 - F, 1 - C, [2, 3] - B, [4, +] - A
+
+cG -> Certifications(# of certifications)
+   
+   1 - C, [2, 3] - B, [4, +] - A
+
+bG -> Bio(Amount written in the bio)
+   
+   0 - F, 1/2  - B, full (1) - A
+
+aG -> Age of the Profile(when it was created)
+
+   < 1.day - C, < 2.days B, 3.days A
+
+
+class Trainer < ActiveRecord::Base
+	before_save :calculate_score
+
+	def calculate_score
+		score = perform_the_calculation
+	end 
+end
+
+table trainers
+  score double
+end
+
+def update
+	trainer.update(....)
+end
+
+
+background job. 24h ...
+
+
+User.all.where(....).order(score: :desc)
+
+2000
+100
+4
+

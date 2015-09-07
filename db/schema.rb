@@ -14,9 +14,13 @@
 ActiveRecord::Schema.define(version: 20150828025851) do
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
+    t.string  "name"
+    t.string  "email"
+    t.string  "password_digest"
+    t.integer "score",           default: 0
+    t.integer "role"
+    t.text    "bio"
+    t.integer "certifications",  default: 0
   end
 
 end

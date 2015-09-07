@@ -1,0 +1,4 @@
+james_bond:
+  email: 'james.bond@example.com'
+  name: 'James Bond'
+  role: 1

@@ -6,4 +6,10 @@ class StaticPagesController < ApplicationController
   def apply
   end
 
+  def profile
+  end
+
+  def new 
+  end
+
 end
