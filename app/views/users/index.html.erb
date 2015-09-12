@@ -1,0 +1,24 @@
+<h1>This the index page for trainer</h1>
+
+<% @users.each do |user| %>
+
+<div class='row'>
+
+      <div class='span8 well'>
+        
+        <h4><%= link_to user.name %></h4>
+        <p>About<%= user.bio %></p>
+        <p>Contact<%= user.email %></p>
+        <p>Profile Score<%= user.score %></p>
+        <!--To Be Hidden In Production-->
+        <p>Number of Certs<%= user.certifications %></p>
+        <p>
+          <span class='quiet'>posted by</span>  
+          
+        </p>
+     
+      </div> 
+
+</div>
+
+<% end %>

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'static_pages#profile'
 
   get '/new', to: 'static_pages#new'
+
+  resources :users
 end
