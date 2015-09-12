@@ -6,18 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.new( email: 'james.bond@example.com', name: 'James Bond')
+user = User.new( email: 'james.bond@example.com', name: 'James Bond', bio: 'This is my bio about me', certifications: 2)
 user.save
 user.client!
 
-user = User.new( email: 'robin.wood@example.com', name: 'Robin Wood')
+user = User.new( email: 'robin.wood@example.com', name: 'Robin Wood', bio: 'This is my bio about myself.', certifications: 3)
 user.client!
 user.save
 
-user = User.new( email: 'john.rambo@example.com', name: 'John Rambo')
+user = User.new( email: 'john.rambo@example.com', name: 'John Rambo', bio: 'This is my story of being a trainer.', certifications: 4)
 user.save
 user.trainer!
 
-user = User.new( email: 'darth.vader@example.com', name: 'Darth Vader')
+user = User.new( email: 'darth.vader@example.com', name: 'Darth Vader', bio: 'This is my bio.', certifications: 5)
 user.save
 user.trainer!
