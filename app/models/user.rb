@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   D= 60
   F= 0
 
+  CLIENT_SCORE_WEIGHT = 2
+
   enum role: [ :trainer, :client, :admin ]
 
   validates :name, presence: true
@@ -16,7 +18,7 @@ class User < ActiveRecord::Base
     #aG = time_score
 
     puts "I'm here"
-    self.score = ((( 4) + (cG * 2) + (5) + (3)) / 14).round(0)
+    self.score = (((4) + (cG * CLIENT_SCORE_WEIGHT) + (5) + (3)) / 14).round(0)
 
     # ((rG * rW) + (cG * cW) + (bG * bW) + (aG * aW)) / (rW + cW + bW + aw)
     # ((70 * 4) + (CG * 2) + (bG * 5) + (aG * 3)) / (4 + 2 + 5 +3)
@@ -53,17 +55,16 @@ class User < ActiveRecord::Base
 #  end
 
 
-  def bio_score
-    byebug
-    case self.bio.split(/\s+/).length
-    when 0
-      User::F 
-    when (1..249)
-        User::B
-    else
-        User::A
-    end
-  end
+  #def bio_score
+#    case self.bio.split(/\s+/).length
+#    when 0
+#      User::F 
+#    when (1..249)
+#        User::B
+#    else
+#        User::A
+#    end
+#  end
 
 
   #def time_score
