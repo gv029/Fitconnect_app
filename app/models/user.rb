@@ -10,13 +10,13 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   def update_score
-    rG = file_uploads_score
+    #rG = file_uploads_score
     cG = certifications_score
-    bG = bio_score
-    aG = time_score
+    #bG = bio_score
+    #aG = time_score
 
     puts "I'm here"
-    self.score = (((rG * 4) + (cG * 2) + (bG * 5) + (aG * 3)) / 14).round(0)
+    self.score = ((( 4) + (cG * 2) + (5) + (3)) / 14).round(0)
 
     # ((rG * rW) + (cG * cW) + (bG * bW) + (aG * aW)) / (rW + cW + bW + aw)
     # ((70 * 4) + (CG * 2) + (bG * 5) + (aG * 3)) / (4 + 2 + 5 +3)
@@ -54,13 +54,14 @@ class User < ActiveRecord::Base
 
 
   def bio_score
-    case bio.split(/\s+/).length
+    byebug
+    case self.bio.split(/\s+/).length
     when 0
       User::F 
     when (1..249)
-      User::B
+        User::B
     else
-      User::A
+        User::A
     end
   end
 
@@ -91,3 +92,4 @@ class User < ActiveRecord::Base
 #
 # User has_may file_uplodas
 #
+end
