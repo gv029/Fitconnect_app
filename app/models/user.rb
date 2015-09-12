@@ -34,23 +34,23 @@ class User < ActiveRecord::Base
     end
   end
   
-  def file_uploads_score
-   number_of_files = self.file_uploads.count # nr_of_files = self.file_uploads.count
+  #def file_uploads_score
+#   number_of_files = self.file_uploads.count # nr_of_files = self.file_uploads.count#
 
-    if number_of_files == 0 
-      User::C 
-    elsif (number_of_files == 1) || (number_of_files == 2) || (number_of_files == 3)
-      # (number_of_files >= 1 &&  number_of_files <= 3)
-      User::B
-    elsif number_of_files >= 4
-      User::A
-    end
-    # if nr_of_files == 0
-    #   return 0
-    # elsif nr_of_files == 1
-    #   return 60
-    # end 
-  end
+#    if number_of_files == 0 
+#      User::C 
+#    elsif (number_of_files == 1) || (number_of_files == 2) || (number_of_files == 3)
+#      # (number_of_files >= 1 &&  number_of_files <= 3)
+#      User::B
+#    elsif number_of_files >= 4
+#      User::A
+#    end
+#    # if nr_of_files == 0
+#    #   return 0
+#    # elsif nr_of_files == 1
+#    #   return 60
+#    # end 
+#  end
 
 
   def bio_score
@@ -65,22 +65,22 @@ class User < ActiveRecord::Base
   end
 
 
-  def time_score
-    0
-  end
+  #def time_score
+#    0
+#  end#
 
-  def empty?
-    bio.size == 0
-  end
+#  def empty?
+#    bio.size == 0
+#  end#
 
-  def half_full
-    bio.size == 125 
-  end
+#  def half_full
+#    bio.size == 125 
+#  end#
 
-  def full
-    bio.size == 250
-  end
-end
+#  def full
+#    bio.size == 250
+#  end
+#end
 
 
 
