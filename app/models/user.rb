@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
+
+User.order(score: :desc)
+
   A= 100
   B= 90
   C= 70
   D= 60
   F= 0
 
+  BIO_SCORE_WEIGTH = 4
   CLIENT_SCORE_WEIGHT = 2
 
   enum role: [ :trainer, :client, :admin ]
@@ -12,13 +16,15 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   def update_score
+
     #rG = file_uploads_score
     cG = certifications_score
-    #bG = bio_score
+    bG = bio_score
     #aG = time_score
 
     puts "I'm here"
-    self.score = (((4) + (cG * CLIENT_SCORE_WEIGHT) + (5) + (3)) / 14).round(0)
+    self.score = (((bG * BIO_SCORE_WEIGTH) + (cG * CLIENT_SCORE_WEIGHT) + (5) + (3)) / 14).round(0)
+
 
     # ((rG * rW) + (cG * cW) + (bG * bW) + (aG * aW)) / (rW + cW + bW + aw)
     # ((70 * 4) + (CG * 2) + (bG * 5) + (aG * 3)) / (4 + 2 + 5 +3)
@@ -55,16 +61,25 @@ class User < ActiveRecord::Base
 #  end
 
 
-  #def bio_score
-#    case self.bio.split(/\s+/).length
-#    when 0
-#      User::F 
-#    when (1..249)
-#        User::B
-#    else
-#        User::A
-#    end
-#  end
+# option, set default: '' to biot
+# def bio
+#    self.bio || ""
+# end
+
+  def bio_score
+   if self.bio.nil?
+    return  User::F
+   end
+   
+   case self.bio.split(/\s+/).length
+    when 0
+      User::F 
+    when (1..249)
+        User::B
+    else
+        User::A
+    end
+  end
 
 
   #def time_score
