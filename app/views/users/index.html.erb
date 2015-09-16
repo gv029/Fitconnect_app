@@ -8,6 +8,9 @@
         
         <h4><%= link_to user.name %></h4>
         <p>About<%= user.bio %></p>
+        
+        <%= user.update_score %>
+        <%= user.certifications_score %>
         <p>Contact<%= user.email %></p>
         <p>Profile Score<%= user.score %></p>
         <!--To Be Hidden In Production-->
