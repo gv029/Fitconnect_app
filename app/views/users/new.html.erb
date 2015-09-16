@@ -23,16 +23,31 @@
         </div>
       </div>
     </div>
-  
-<div class='row'>
-  <div class='col-md-6'>
-    <p>Bio</p>
-    <textarea class='form-control' rows='3'></textarea>
-    <p><a href='#' class='btn btn-primary' role='button'>Submit</a></p>
+  <div class='row'>
+    <div class='col-md-6'>  
+        <%= form_for @users, html: { class: 'form-inline'} do |f| %>
+    <div class='form-group' >
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div class='form-group' >
+        <%= f.label :bio %>
+        <%= f.text_area :bio %>
+    </div>
+      
+    
+    
   </div><!--END Col-->
   <div class='col-md-6'>
     <p>Years Experience</p>
+  <div class='form-group'>
     <p>Number Of Certifications</p>
+    <%= f.label :certifications %>
+    <%= f.number_field :certifications %>
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+    
   </div><!--END COL-->
 </div><!--END ROW-->
 </div><!--Close Jumbotron -->
