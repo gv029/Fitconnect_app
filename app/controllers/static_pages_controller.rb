@@ -15,4 +15,7 @@ class StaticPagesController < ApplicationController
   def question
   end
 
+  def signup
+  end
+
 end

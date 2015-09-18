@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   get '/question', to: 'static_pages#question'
 
+  get '/signup', to: 'static_pages#signup'
+
   resources :users
 end
