@@ -8,8 +8,9 @@
         <img src='...' alt='...'>
         <div class='caption'>
           <h3>Upload Profile Pic</h3>
-          <p>.....</p>
-          <p><a href='#' class='btn btn-primary' role='button'>Upload Pic</a></p>
+          <%= form_for @users, url: users_path, html: { multipart: true} do |f| %>
+            <%= f.file_field :avatar %>
+          <% end %>
         </div>
       </div><!--END THUMBNAIL-->
     </div><!--END COL-->

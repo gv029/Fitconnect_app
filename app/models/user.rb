@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_attached_file :avatar, styles: { medium: '300x300', thumb: '100x100'}, 
+  default_url: '/images/:style/missing.png'
+  validates_attachment_content_type :avatar, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
+
 
 User.order(score: :desc)
 
@@ -17,13 +21,13 @@ User.order(score: :desc)
 
   def update_score
 
-    #rG = file_uploads_score
+    rG = avatar_score
     cG = certifications_score
     bG = bio_score
     #aG = time_score
 
     puts "I'm here"
-    self.score = (((bG * BIO_SCORE_WEIGTH) + (cG * CLIENT_SCORE_WEIGHT) + (5) + (3)) / 14).round(0)
+    self.score = (((bG * BIO_SCORE_WEIGTH) + (cG * CLIENT_SCORE_WEIGHT) + (rG * 5) + (3)) / 14).round(0)
 
 
 
@@ -42,7 +46,8 @@ User.order(score: :desc)
       User::A
     end
   end
-  
+
+
   def file_uploads_score
    number_of_files = self.file_uploads.count # nr_of_files = self.file_uploads.count
 
@@ -59,6 +64,14 @@ User.order(score: :desc)
     # elsif nr_of_files == 1
     #   return 60
     # end 
+  end
+
+  def avatar_score
+    if avatar.nil?
+      User::F
+    else
+      User::A
+    end
   end
 
 
@@ -83,6 +96,8 @@ User.order(score: :desc)
 
     end
   end
+
+
 
 
   def time_score

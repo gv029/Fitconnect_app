@@ -11,16 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828025851) do
+ActiveRecord::Schema.define(version: 20150919171247) do
 
   create_table "users", force: :cascade do |t|
-    t.string  "name"
-    t.string  "email"
-    t.string  "password_digest"
-    t.integer "score",           default: 0
-    t.integer "role"
-    t.text    "bio"
-    t.integer "certifications",  default: 0
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "score",               default: 0
+    t.integer  "role"
+    t.text     "bio"
+    t.integer  "certifications",      default: 0
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end
