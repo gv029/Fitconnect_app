@@ -1,10 +1,6 @@
 class User < ActiveRecord::Base
-  has_attached_file :avatar, styles: { medium: '300x300', thumb: '100x100'}, 
-  default_url: '/images/:style/missing.png'
-  validates_attachment_content_type :avatar, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
-
-
-User.order(score: :desc)
+  has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100#'} 
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   A= 100
   B= 90
@@ -12,8 +8,10 @@ User.order(score: :desc)
   D= 60
   F= 0
 
+  
   BIO_SCORE_WEIGTH = 4
   CLIENT_SCORE_WEIGHT = 2
+  AVATAR_SCORE_WEIGHT = 5
 
   enum role: [ :trainer, :client, :admin ]
 
@@ -21,13 +19,13 @@ User.order(score: :desc)
 
   def update_score
 
-    rG = avatar_score
+    aG = avatar_score
     cG = certifications_score
     bG = bio_score
     #aG = time_score
 
     puts "I'm here"
-    self.score = (((bG * BIO_SCORE_WEIGTH) + (cG * CLIENT_SCORE_WEIGHT) + (rG * 5) + (3)) / 14).round(0)
+    self.score = (((bG * BIO_SCORE_WEIGTH) + (cG * CLIENT_SCORE_WEIGHT) + (aG * AVATAR_SCORE_WEIGHT) + (3)) / 14).round(0)
 
 
 
@@ -67,6 +65,7 @@ User.order(score: :desc)
   end
 
   def avatar_score
+  
     if avatar.nil?
       User::F
     else
@@ -76,10 +75,7 @@ User.order(score: :desc)
 
 
 
-# option, set default: '' to biot
-# def bio
-#    self.bio || ""
-# end
+
 
   def bio_score
    if self.bio.nil?
@@ -89,35 +85,18 @@ User.order(score: :desc)
    case self.bio.split(/\s+/).length
     when 0
       User::F 
-    when (1..249)
-        User::B
+    when (1..100)
+        User::C
     else
         User::A
 
     end
   end
-
-
-
-
-  def time_score
-    0
-  end
-
-  def empty?
-    bio.size == 0
-  end
-
-  def half_full
-    bio.size == 125 
-  end
-
-  def full
-    bio.size == 250
-  end
 end
 
 
+
+  
 
 
 
