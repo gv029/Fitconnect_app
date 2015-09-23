@@ -1,54 +1,104 @@
-<h1>Fill Out Your Profile</h1>
 
-
-<div class='jumbotron'>
-  <div class='row'>
-    <div class='col-md-6'>
-      <div class='thumbnail'>
-        <img src='...' alt='...'>
-        <div class='caption'>
-          <h3>Upload Profile Pic</h3>
-          <%= form_for @users, url: users_path, html: { multipart: true} do |f| %>
-            <%= f.file_field :avatar %>
-          <% end %>
-        </div>
-      </div><!--END THUMBNAIL-->
-    </div><!--END COL-->
-    <div class='col-md-6'>
-      <div class='thumbnail'>
-        <img src='...' alt='...'>
-        <div class='caption'>
-          <h3>Upload Your Clients Before/After Pics</h3>
-          <p>.....</p>
-          <p><a href='#' class='btn btn-primary' role='button'>Upload Pic</a></p>
-        </div>
+  <div class="container" style="padding-top: 60px;">
+  <h1 class="page-header">Create Profile</h1>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center">
+        <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <%= form_for @users, url: users_path, html: { multipart: true} do |f| %>
+          <%= f.file_field :avatar %>
+        <% end %>
       </div>
     </div>
-  <div class='row'>
-    <div class='col-md-6'>  
-        <%= form_for @users, html: { class: 'form-inline'} do |f| %>
-    <div class='form-group' >
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+    <!-- edit form column -->
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+      <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a> 
+        <i class="fa fa-coffee"></i>
+        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+      </div>
+
+      <h3>Personal info</h3>
+      <%= form_for @users, html: { class: 'form-horizontal'} do |f| %>
+        <div class="form-group">
+          <%= f.label :name, class: 'col-lg-3 control-label' %>
+          <%= f.text_field :name %>
+        </div>
+          <div class="form-group">
+            <%= f.label :bio %>
+            <%= f.text_area :bio %>
+        </div>
+        <div class="form-group">
+            <%= f.label :certifications %>
+            <%= f.number_field :certifications %>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Company:</label>
+          <div class="col-lg-8">
+            <input class="form-control" value="" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Email:</label>
+          <div class="col-lg-8">
+            <input class="form-control" value="janesemail@gmail.com" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Time Zone:</label>
+          <div class="col-lg-8">
+            <div class="ui-select">
+              <select id="user_time_zone" class="form-control">
+                <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                <option value="Alaska">(GMT-09:00) Alaska</option>
+                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                <option value="Arizona">(GMT-07:00) Arizona</option>
+                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Username:</label>
+          <div class="col-md-8">
+            <input class="form-control" value="janeuser" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Password:</label>
+          <div class="col-md-8">
+            <input class="form-control" value="11111122333" type="password">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Confirm password:</label>
+          <div class="col-md-8">
+            <input class="form-control" value="11111122333" type="password">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <%= f.submit 'Submit', class: 'btn btn-md btn-primary' %>
+            <span></span>
+            <input class="btn btn-default" value="Cancel" type="reset">
+          </div>
+        </div>
+        <% end %>
+      </form>
     </div>
-    <div class='form-group' >
-        <%= f.label :bio %>
-        <%= f.text_area :bio %>
-    </div>
-      
-    
-    
-  </div><!--END Col-->
-  <div class='col-md-6'>
-    <p>Years Experience</p>
-  <div class='form-group'>
-    <p>Number Of Certifications</p>
-    <%= f.label :certifications %>
-    <%= f.number_field :certifications %>
-    <%= f.submit 'Submit', class: 'btn btn-primary' %>
-    <% end %>
+  </div>
+</div>
   </div>
     
   </div><!--END COL-->
 </div><!--END ROW-->
 </div><!--Close Jumbotron -->
+
+
+
