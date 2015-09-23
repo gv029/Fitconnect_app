@@ -46,17 +46,17 @@ class User < ActiveRecord::Base
   end
 
 
-  def file_uploads_score
-   number_of_files = self.file_uploads.count # nr_of_files = self.file_uploads.count
+  #def file_uploads_score
+#   number_of_files = self.file_uploads.count # nr_of_files = self.file_uploads.count#
 
-    if number_of_files == 0 
-      User::C 
-    elsif (number_of_files == 1) || (number_of_files == 2) || (number_of_files == 3)
-      # (number_of_files >= 1 &&  number_of_files <= 3)
-      User::B
-    elsif number_of_files >= 4
-      User::A
-    end
+#    if number_of_files == 0 
+#      User::C 
+#    elsif (number_of_files == 1) || (number_of_files == 2) || (number_of_files == 3)
+#      # (number_of_files >= 1 &&  number_of_files <= 3)
+#      User::B
+#    elsif number_of_files >= 4
+#      User::A
+#    end
     # if nr_of_files == 0
     #   return 0
     # elsif nr_of_files == 1

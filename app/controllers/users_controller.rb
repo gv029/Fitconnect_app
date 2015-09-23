@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all.sort_by {|x| x.score}.reverse
+    @users = User.all.sort_by {|x| x.score }.reverse
   end
 
   def new
