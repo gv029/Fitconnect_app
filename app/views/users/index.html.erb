@@ -26,7 +26,8 @@
               <p><strong>About:<%= user.bio %></p>
               <p><strong>Number of Certifications: </strong><%= user.certifications %> </p>
               <p><strong>Skills: </strong>
-              <p><strong>Profile Score: <%= user.update_score %>  
+              <p><strong>Profile Score: <%= user.update_score %> 
+              <p><strong><%= link_to 'Delete', user, method: :delete, data: { confirm: 'You sure?' } %>
                 <span class="label label-info tags">NASM</span> 
                 <span class="label label-info tags">RKC</span>
                 <span class="label label-info tags">CES</span>
