@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   get '/new', to: 'static_pages#new'
 
-  get '/question', to: 'static_pages#question'
+  get '/questions', to: 'static_pages#question'
+
+  get '/client_questions', to: 'static_pages#client_questions'
 
   get '/signup', to: 'static_pages#signup'
 

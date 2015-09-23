@@ -15,6 +15,9 @@ class StaticPagesController < ApplicationController
   def question
   end
 
+  def client_questions
+  end
+
   def signup
   end
 
