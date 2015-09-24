@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
     # elsif nr_of_files == 1
     #   return 60
     # end 
-  end
+
 
   def avatar_score
   

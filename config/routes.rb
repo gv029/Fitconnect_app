@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   get '/client_questions', to: 'static_pages#client_questions'
 
-  get '/signup', to: 'static_pages#signup'
+  get '/sign_in', to: 'static_pages#sign_in'
+
+  get '/sign_up', to: 'static_pages#sign_up'
 
   resources :users
 end
