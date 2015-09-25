@@ -1,5 +1,21 @@
 <h1>Fill Out Your Profile</h1>
 
+<%= form_tag '/questions' do |f| %>
+  <div class='well'
+  <p class='lead'>
+    What are your training goals?<br>
+      <% Answer.training_goals.each do |answer| %>
+        <%= check_box_tag "answer[]", answer.id %> <%= answer.title %>
+      <% end %>
+
+      user.answers.includ?(answer.id)
+      
+    </p>
+  </div>
+
+  <%= submit_tag 'Test' %>
+<% end %>
+
 <div class='well'
   <p class='lead'>
     What are your training goals?<br>

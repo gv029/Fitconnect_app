@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
 
+  has_many :fitness_answers
+  has_many :answers, through: :fitness_answers
+
   def update_score
 
     aG = avatar_score

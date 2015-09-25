@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/new', to: 'static_pages#new'
 
   get '/questions', to: 'static_pages#question'
+  post '/questions', to: 'static_pages#question'
 
   get '/client_questions', to: 'static_pages#client_questions'
 

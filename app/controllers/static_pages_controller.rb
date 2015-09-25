@@ -1,6 +1,9 @@
 class StaticPagesController < ApplicationController
 
   def home
+    # User.first.answer_ids = params[:answer]
+    #user.answers << Answer.first
+    #user.answer_ids = 
   end
 
   def apply

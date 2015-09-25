@@ -21,3 +21,11 @@ user.trainer!
 user = User.new( email: 'darth.vader@example.com', name: 'Darth Vader', bio: 'This is my bio.', certifications: 5)
 user.save
 user.trainer!
+
+Answer.create([
+  { title: 'Bodybuilding', group: 'training_goals' },
+  { title: 'Weight Loss', group: 'training_goals' },
+  { title: 'General Health And Well Being', group: 'training_goals' },
+  { title: 'Rehabilition', group: 'training_goals' },
+  { title: 'Athletic Development', group: 'training_goals' }
+])
